@@ -29,21 +29,15 @@ bot.register(function(message) {
   console.log("New message from " + message.personEmail + ": " + message.text);
 
   // Check if the message is the /echo command
-  var command = message.text.match(/^(\/echo)\s+(.+)/);
-  if(command && Array.isArray(command) && command.length){
-    console.log("echo command detected");
-
-    // removing first item containg full text in array;
-    command.shift();
-    // now command is an array containing
-    //["/echo", "the message to echo"];
-
+  var command = message.text.match(/^(\/\w+)\s/);
+  if(command=="help"){
+    console.log("help command detected");
     // send the message into the room
     sparky.message.send.room(message.roomId, {
-      text: command[1]
+      text: "Welcome to Redbot!"
     }, function(err, results) {
       if (err) {
-        console.log("could not send the message back to the room: " + err);
+        console.log("could not send the message to the room: " + err);
       }
       else {
         console.log("echo command successful");
