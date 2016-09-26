@@ -29,7 +29,7 @@ bot.register(function(message) {
   console.log("New message from " + message.personEmail + ": " + message.text);
 
   // Check if the message is the /echo command
-  var command = message.text.match(/^(\/\w+)\s/);
+  var command = message.text.match(/\/\w+)/);
   if(command=="help"){
     console.log("help command detected");
     // send the message into the room
@@ -48,7 +48,7 @@ bot.register(function(message) {
     console.log("about command detected");
     // send the message into the room
     sparky.messageSendRoom(message.roomId, {
-      text: I am RedBot, Redbulls first Spark bot! /r/n If you have any Ideas how I can help you let my master know!"
+      text: "I am RedBot, Redbulls first Spark bot! /r/n If you have any Ideas how I can help you let my master know!"
     }, function(err, results) {
       if (err) {
         console.log("could not send the message to the room: " + err);
