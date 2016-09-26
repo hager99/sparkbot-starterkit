@@ -43,6 +43,19 @@ bot.register(function(message) {
         console.log("echo command successful");
       }
     });
+    if(command=="about"){
+    console.log("about command detected");
+    // send the message into the room
+    sparky.messageSendRoom(message.roomId, {
+      text: "I am RedBot, Redbulls first Spark bot! /r/n If you have any Ideas how I can help you let my master know!"
+    }, function(err, results) {
+      if (err) {
+        console.log("could not send the message to the room: " + err);
+      }
+      else {
+        console.log("echo command successful");
+      }
+    });
   }
 
 });
