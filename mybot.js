@@ -33,7 +33,7 @@ bot.register(function(message) {
   if(command=="help"){
     console.log("help command detected");
     // send the message into the room
-    sparky.message.send.room(message.roomId, {
+    sparky.messageSendRoom(message.roomId, {
       text: "Welcome to Redbot!"
     }, function(err, results) {
       if (err) {
